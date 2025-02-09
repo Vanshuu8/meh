@@ -1,0 +1,43 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+export default function Proposal() {
+  const [accepted, setAccepted] = useState(false);
+  const [noPosition, setNoPosition] = useState({ x: 0, y: 0 });
+
+  const moveNoButton = () => {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    setNoPosition({ x, y });
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-pink-100 text-center p-4">
+      {accepted ? (
+        <h1 className="text-4xl font-bold text-red-600">Yay! 💍 I love you! ❤️</h1>
+      ) : (
+        <>
+          <h1 className="text-3xl font-semibold text-gray-700">I have a question for you...</h1>
+          <p className="text-xl mt-4">Will you marry me? 🥰</p>
+          <div className="flex mt-6 space-x-4 relative">
+            <Button onClick={() => setAccepted(true)} className="bg-red-500 hover:bg-red-700 text-white px-6 py-3 text-lg">
+              Yes 💖
+            </Button>
+            <motion.div
+              animate={{ x: noPosition.x, y: noPosition.y }}
+              transition={{ type: "spring", stiffness: 100 }}
+            >
+              <Button
+                onMouseEnter={moveNoButton}
+                className="bg-gray-500 text-white px-6 py-3 text-lg"
+              >
+                No 😢
+              </Button>
+            </motion.div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
