@@ -100,7 +100,7 @@
         <div class="slide" style="background-image: url('YOUR_IMAGE_URL_2.jpeg');"></div>
     </div>
 
-    <div class="container">
+    <div class="container" id="mainContent">
         <h1>Dear Anuja ❤️</h1>
         <p>You're the most amazing person I've ever met!!!!😍</p>
         <h1>So, today I ask you, if any part of you wants to give it a try?💘...</h1>
@@ -148,6 +148,17 @@
         }
 
         setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+        // Auto-scroll down for mobile users
+        function autoScroll() {
+            if (window.innerWidth <= 768) {  // Checks if it's a phone
+                setTimeout(() => {
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                }, 1000);  // Delays scrolling by 1 second
+            }
+        }
+
+        window.onload = autoScroll;  // Runs the function on page load
     </script>
 
 </body>
