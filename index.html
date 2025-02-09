@@ -12,9 +12,11 @@
             color: #d63384;
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
         .container {
             padding: 50px;
+            position: relative;
         }
         h1 {
             font-size: 40px;
@@ -34,6 +36,7 @@
         }
         .btn-container {
             margin-top: 30px;
+            position: relative;
         }
         .btn {
             font-size: 20px;
@@ -59,7 +62,7 @@
     <div class="container">
         <h1>Dear Anuja ❤️</h1>
         <p>You're the most amazing person I've ever met!!!!😍</p>
-        <p>So, today I ask you,if any part of you want to give it a try?...</p>
+        <p>So, today I ask you, if any part of you wants to give it a try?...</p>
         <h1> 💘</h1>
         <div class="heart">❤️</div>
         
@@ -71,13 +74,18 @@
 
     <script>
         function sayYes() {
-            document.body.innerHTML = "<h1>Yay! 🎉 I Love You, Anuja! ❤️</h1><p>You made my Valentine's Day the best ever! 🥰</p><div class='heart'>💖</div>";
+            document.body.innerHTML = `
+                <div class="container">
+                    <h1>Yay! 🎉 I Love You, Anuja! ❤️</h1>
+                    <p>You made my Valentine's Day the best ever! 🥰</p>
+                    <div class='heart'>💖</div>
+                </div>`;
         }
 
         function moveButton() {
             let noBtn = document.getElementById("noBtn");
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
+            let x = Math.max(10, Math.random() * (window.innerWidth - 120)); 
+            let y = Math.max(10, Math.random() * (window.innerHeight - 50));
             noBtn.style.left = `${x}px`;
             noBtn.style.top = `${y}px`;
         }
