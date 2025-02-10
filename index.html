@@ -154,11 +154,11 @@
             if (window.innerWidth <= 768) {  // Checks if it's a phone
                 setTimeout(() => {
                     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-                }, 1000);  // Delays scrolling by 1 second
+                }, 1000);  // Delays scrolling by 3 second
             }
         }
 
-        window.onload = Scroll;  // Runs the function on page load
+        window.onload = autoScroll;  // Runs the function on page load
     </script>
 
 </body>
